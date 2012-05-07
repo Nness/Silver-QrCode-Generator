@@ -1,0 +1,18 @@
+﻿<Window x:Class="QrCodeGenerator.Save"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Save" Height="220" Width="224" ResizeMode="NoResize" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" ShowInTaskbar="False" WindowStyle="ToolWindow" Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54" />
+            <RowDefinition Height="207*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="20" FontWeight="Bold">Save QrCode</TextBlock>
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="24,14,0,0" Text="Image Size" FontWeight="Bold" VerticalAlignment="Top" />
+        <xctk:WatermarkTextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="24,43,0,0" Name="wtbSize" VerticalAlignment="Top" Width="100" 
+                               Watermark="inch" ToolTip="Save QrCode with inch x inch"/>
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="130,43,0,0" Text="inch" VerticalAlignment="Top" />
+        <Button Content="Save" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="24,84,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click" />
+    </Grid>
+</Window>

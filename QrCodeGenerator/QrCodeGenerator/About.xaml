@@ -1,0 +1,33 @@
+﻿<Window x:Class="QrCodeGenerator.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="187" Width="300" ResizeMode="NoResize" Icon="Images/QrCodeNet.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="205*" />
+        </Grid.RowDefinitions>
+        <Label Content="Silver QrCode Generator" Height="28" HorizontalAlignment="Center" Margin="0" Name="label1" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" />
+        <Grid Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="grid1" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="41" />
+                <RowDefinition Height="48" />
+                <RowDefinition Height="116*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="96" />
+                <ColumnDefinition Width="182*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Height="23" HorizontalAlignment="Left" Margin="10, 5, 0, 0" Text="Information" VerticalAlignment="Top" />
+            <TextBlock Grid.Column="1" Grid.Row="0" Height="23" Width="Auto" HorizontalAlignment="Left" Margin="10, 5, 0, 0" VerticalAlignment="Top" >
+                <Hyperlink NavigateUri="http://qrcodenet.codeplex.com/" RequestNavigate="Hyperlink_RequestNavigate"
+                           Name="navigateUri">
+                    http://qrcodenet.codeplex.com/
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10, 5, 0, 0" Text="Developer" VerticalAlignment="Top" />
+            <TextBlock Grid.Column="1" Grid.Row="1" Height="23" Width="Auto" HorizontalAlignment="Left" Margin="10, 5, 0, 0" Text="Silverlancer (Jason He)" VerticalAlignment="Top" >
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Window>

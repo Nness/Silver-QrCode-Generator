@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silver QrCode Generator", "QrCodeGenerator\Silver QrCode Generator.csproj", "{547FAC96-A8E5-40A4-A0DA-AD0D2EB9EB27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{547FAC96-A8E5-40A4-A0DA-AD0D2EB9EB27}.Debug|x86.ActiveCfg = Release|x86
+		{547FAC96-A8E5-40A4-A0DA-AD0D2EB9EB27}.Debug|x86.Build.0 = Release|x86
+		{547FAC96-A8E5-40A4-A0DA-AD0D2EB9EB27}.Release|x86.ActiveCfg = Release|x86
+		{547FAC96-A8E5-40A4-A0DA-AD0D2EB9EB27}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,160 @@
+﻿<Window x:Class="QrCodeGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:Gma.QrCodeNet.Encoding.Windows.WPF;assembly=Gma.QrCodeNet.Encoding"
+        xmlns:ec="clr-namespace:Gma.QrCodeNet.Encoding;assembly=Gma.QrCodeNet.Encoding"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:QrCodeGenerator" 
+        Height="350" Width="732" Icon="Images/QrCodeNet.png"
+        Title="QrCode.Net - Silverlancer" MinWidth="350" MinHeight="250" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Name="mainWindows">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="errorCorrectLevel"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ec:ErrorCorrectionLevel"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="About" Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <Image Source="Images/QrCodeNet.png" Width="20" Height="20"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid Height="Auto" Width="Auto" Name="gridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" MaxWidth="300" Name="columnDMainLeft"/>
+            <ColumnDefinition Width="*" MinWidth="200" />
+        </Grid.ColumnDefinitions>
+        <ComboBox Height="23" HorizontalAlignment="Stretch" Margin="0" Name="cbSelectContent" VerticalAlignment="Stretch" Width="auto"
+                  SelectedIndex="{Binding ElementName=tcBarcodeContent, Path=SelectedIndex}">
+            <ComboBoxItem ToolTip="Web Site">URL</ComboBoxItem>
+            <ComboBoxItem ToolTip="MeCard(PhoneBook)">MeCard</ComboBoxItem>
+            <ComboBoxItem ToolTip="vCard(Business card)">vCard</ComboBoxItem>
+            <ComboBoxItem ToolTip="Text">Text</ComboBoxItem>
+        </ComboBox>
+        <TabControl Grid.Column="0" Grid.Row="1" Height="auto" HorizontalAlignment="Stretch" Margin="0" Name="tcBarcodeContent" VerticalAlignment="Stretch" Width="auto">
+            <TabItem Header="URL" Name="tiURL" Visibility="Collapsed">
+                <StackPanel>
+                    <Label Content="URL" Name="lbURL" FontWeight="Bold" />
+                    <xctk:WatermarkTextBox Height="Auto" Name="wtbURLUri" Width="Auto" AcceptsTab="False" TextWrapping="Wrap" Watermark="http://www.google.com"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="MeCard" Name="tiMeCard" Visibility="Collapsed">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Top">First Name</TextBlock>
+                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeFirstName"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Last Name</TextBlock>
+                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeLastName"
+                                        VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Phone</TextBlock>
+                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="Phone 1" Name="wtbMePhone" Margin="5, 0, 0, 0"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"></xctk:WatermarkTextBox>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Email</TextBlock>
+                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="bala@name.com" Name="wtbMeEmail" Margin="5, 0, 0, 0"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"></xctk:WatermarkTextBox>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">URL</TextBlock>
+                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="http://www.google.com" Name="wtbMeUrl" Margin="5, 0, 0, 0"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"></xctk:WatermarkTextBox>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Birth Day</TextBlock>
+                            <xctk:DateTimePicker Format="ShortDate" Name="dtpMeBirth" Margin="5, 0, 0, 0"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto"></xctk:DateTimePicker>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Memo</TextBlock>
+                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeMemo"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Address</TextBlock>
+                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeAddress"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="vCard" Name="tivCard" Visibility="Collapsed">
+                
+            </TabItem>
+            <TabItem Header="Text" Name="tiText" Visibility="Collapsed">
+                
+            </TabItem>
+        </TabControl>
+        <GridSplitter Grid.Column="1" Grid.RowSpan="3" Height="Auto" HorizontalAlignment="Left" Margin="0" Name="gridSplitter" VerticalAlignment="Stretch" Width="5" Background="#B561B0D2" DragCompleted="gridSplitter_DragCompleted" />
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" MinWidth="70"/>
+                <ColumnDefinition Width="50*" MinWidth="70"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnGenerate" Grid.Column="0" MinWidth="50" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Content="Generate" Click="btnGenerate_Click" />
+            <Button Name="btnClear" Grid.Column="1" MinWidth="50" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Content="Clear" Click="btnClear_Click" />
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Height="Auto" HorizontalAlignment="Stretch" Name="grid1" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="29" />
+            </Grid.RowDefinitions>
+            <my:QrCodeGeoControl Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5, 0, 0, 0" Width="Auto" Height="Auto"
+                                 Name="qrCodeGeoControl" ErrorCorrectLevel="H" QuietZoneModule="Two"
+                                 ToolTip="{Binding ElementName=qrCodeGeoControl, Path=Text}">
+                <my:QrCodeGeoControl.DarkBrush>
+                    <SolidColorBrush Color="{Binding ElementName=cpDark, Path=SelectedColor}">
+                    </SolidColorBrush>
+                </my:QrCodeGeoControl.DarkBrush>
+                <my:QrCodeGeoControl.LightBrush>
+                    <SolidColorBrush Color="{Binding ElementName=cpLight, Path=SelectedColor}" />
+                </my:QrCodeGeoControl.LightBrush>
+            </my:QrCodeGeoControl>
+            <Grid Grid.Row="1" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="15*"/>
+                </Grid.ColumnDefinitions>
+                <xctk:ColorPicker Grid.Column="1" HorizontalAlignment="Center" Name="cpDark" VerticalAlignment="Center" Margin="0" SelectedColor="Black"
+                                  ToolTip="Color for Dark Module"/>
+                <xctk:ColorPicker Grid.Column="3" HorizontalAlignment="Center" Name="cpLight" VerticalAlignment="Center" Margin="0" SelectedColor="White"
+                                  ToolTip="Color for Light Module"/>
+                <Button Grid.Column="0" Width="25" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 0, 0, 0" Click="Button_Click">
+                    <Path Name="pathArrow" Stretch="Uniform" Width="20" Height="20" StrokeLineJoin="Miter"
+                          Data="M 0 10 L -10 0 L 0 -10 M 5 5 L 0 0 L 5 -5" Stroke="Black" StrokeThickness="2"
+                          RenderTransformOrigin="0.5, 0.5"/>
+                </Button>
+                <ComboBox Name="cbErrorCorrect" 
+                          Grid.Column="5"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding Source={StaticResource errorCorrectLevel}}"
+                          SelectedValue="{Binding ElementName=qrCodeGeoControl, Path=ErrorCorrectLevel}">
+                    <ComboBox.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold">ErrorCorrectionLevel</TextBlock>
+                                <TextBlock>Higher level QrCode can take more scratch damage.</TextBlock>
+                                <TextBlock>But size will increase in exchange.</TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </ComboBox.ToolTip>
+                </ComboBox>
+                <Button Name="btnSave" Grid.Column="6" Width="25" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnSave_Click"
+                        ToolTip="Save current QrCode">
+                    <Path Stretch="Fill" Width="17" Height="17" StrokeLineJoin="Miter"
+                          Data="F 1 M -10 10 L 10 10 L 10 -10 L 5 -10 L 5 -5 L -5 -5 L -5 -10 L -7 -10 L -10 -7 Z M 5 -10 L -5 -10"
+                          Stroke="Black" Fill="LightBlue" StrokeThickness="1"
+                          />
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
