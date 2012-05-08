@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="QrCodeGenerator.TabPage.vCardPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="201">
+    <StackPanel>
+        <TextBlock FontWeight="Bold">First Name</TextBlock>
+        <TextBox Name="tbVFirstName" Margin="5, 0, 0, 0" Width="Auto" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+        <TextBlock FontWeight="Bold">Last Name</TextBlock>
+        <TextBox Name="tbVLastName" Margin="5, 0, 0, 0" Width="Auto" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+        <TextBlock FontWeight="Bold">Mobile</TextBlock>
+        <xctk:WatermarkTextBox Name="wtbVMobile" Width="Auto" HorizontalAlignment="Stretch" TextWrapping="Wrap" Watermark="Mobile"/>
+        <TextBlock FontWeight="Bold">Title</TextBlock>
+        <TextBox Name="tbTitle" Margin="5, 0, 0, 0" Width="Auto" HorizontalAlignment="Stretch" TextWrapping="Wrap" />
+    </StackPanel>
+</UserControl>
