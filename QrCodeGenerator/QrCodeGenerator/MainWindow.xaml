@@ -47,37 +47,37 @@
             <TabItem Header="URL" Name="tiURL" Visibility="Collapsed">
                 <StackPanel>
                     <Label Content="URL" Name="lbURL" FontWeight="Bold" />
-                    <xctk:WatermarkTextBox Height="Auto" Name="wtbURLUri" Width="Auto" AcceptsTab="False" TextWrapping="Wrap" Watermark="http://www.google.com"/>
+                    <xctk:WatermarkTextBox Height="Auto" Name="wtbURLUri" Width="Auto" AcceptsTab="False" TextWrapping="Wrap" Watermark="http://www.google.com" BorderThickness="0.5"/>
                 </StackPanel>
             </TabItem>
             <TabItem Header="MeCard" Name="tiMeCard" Visibility="Collapsed">
                 <Grid>
                     <ScrollViewer>
                         <StackPanel>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Top">First Name</TextBlock>
+                            <TextBlock FontWeight="Bold">First Name</TextBlock>
                             <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeFirstName"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Last Name</TextBlock>
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
+                            <TextBlock  >Last Name</TextBlock>
                             <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeLastName"
-                                        VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Phone</TextBlock>
-                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="Phone 1" Name="wtbMePhone" Margin="5, 0, 0, 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"></xctk:WatermarkTextBox>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Email</TextBlock>
+                                        VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
+                            <TextBlock >Phone</TextBlock>
+                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="Phone" Name="wtbMePhone" Margin="5, 0, 0, 0"
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" BorderThickness="0.5"/>
+                            <TextBlock  >Email</TextBlock>
                             <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="bala@name.com" Name="wtbMeEmail" Margin="5, 0, 0, 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"></xctk:WatermarkTextBox>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">URL</TextBlock>
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" BorderThickness="0.5"/>
+                            <TextBlock >URL</TextBlock>
                             <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="http://www.google.com" Name="wtbMeUrl" Margin="5, 0, 0, 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto"></xctk:WatermarkTextBox>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Birth Day</TextBlock>
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" BorderThickness="0.5"/>
+                            <TextBlock >Birth Day</TextBlock>
                             <xctk:DateTimePicker Format="ShortDate" Name="dtpMeBirth" Margin="5, 0, 0, 0"
-                                HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto"></xctk:DateTimePicker>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Memo</TextBlock>
+                                HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" BorderThickness="0.5"/>
+                            <TextBlock >Memo</TextBlock>
                             <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeMemo"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
-                            <TextBlock FontWeight="Bold" DockPanel.Dock="Left">Address</TextBlock>
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
+                            <TextBlock >Address</TextBlock>
                             <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeAddress"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

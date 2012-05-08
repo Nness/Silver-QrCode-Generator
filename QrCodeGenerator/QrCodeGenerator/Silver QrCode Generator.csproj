@@ -90,6 +90,9 @@
       <DependentUpon>Save.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringMethod.cs" />
+    <Compile Include="TabPage\vCardPage.xaml.cs">
+      <DependentUpon>vCardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UIValidation.cs" />
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
@@ -108,6 +111,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Save.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabPage\vCardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,6 +172,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
