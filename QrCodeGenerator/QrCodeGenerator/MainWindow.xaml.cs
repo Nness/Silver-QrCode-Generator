@@ -52,113 +52,54 @@ namespace QrCodeGenerator
         /// Check input and return validation result
         /// </summary>
         /// <returns>true if validation successful</returns>
-        private bool ValidationInput(int index)
+        private void ValidationInput(int index)
         {
             switch (index)
             {
                 case 0:
-                    if (UIValidation.ValidateURI(wtbURLUri))
-                    {
+                    if (UIValidation.ValidateURI(wtbURLUri, true))
                         qrCodeGeoControl.Text = wtbURLUri.Text;
-                        return true;
-                    }
-                    else
-                        return false;
+                    break;
                 case 1:
-                    if (isMeCardValid())
-                    {
-                        MeCardGenerate();
-                        return true;
-                    }
-                    else
-                        return false;
+                    string mecardStr;
+                    if (pageMeCard.isMeCardValid(out mecardStr))
+                        qrCodeGeoControl.Text = mecardStr;
+                    break;
                 case 2:
-                    return true;
+                    string vcardStr;
+                    if (pageVCard.isVCardValide(out vcardStr))
+                        qrCodeGeoControl.Text = vcardStr;
+                    break;
                 case 3:
-                    return true;
+                    string phoneStr;
+                    if (pagePhone.isPhoneValid(out phoneStr))
+                        qrCodeGeoControl.Text = phoneStr;
+                    break;
+                case 4:
+                    string smsStr;
+                    if (pageSMS.isSMSValid(out smsStr))
+                        qrCodeGeoControl.Text = smsStr;
+                    break;
+                case 5:
+                    string emailStr;
+                    if (pageEmail.isEmailValid(out emailStr))
+                        qrCodeGeoControl.Text = emailStr;
+                    break;
+                case 6:
+                    if (UIValidation.ValidateRequiredTextBox(tbText))
+                        qrCodeGeoControl.Text = tbText.Text;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("index", "Not support such index");
             }
-            throw new NotImplementedException();
         }
 
-        private bool isMeCardValid()
-        {
-            bool isValid = true;
-            if (!UIValidation.ValidateRequiredTextBox(tbMeFirstName))
-                isValid = false;
-            if(!UIValidation.RegexValidate(wtbMePhone, UIValidation.PhoneReg, "Invalide phone format"))
-                isValid = false;
-            if (!UIValidation.RegexValidate(wtbMeEmail, UIValidation.EmailReg, "Invalide email format"))
-                isValid = false;
-            if (!UIValidation.ValidateURI(wtbMeUrl))
-                isValid = false;
-            if (!UIValidation.ValidateBirthDay(dtpMeBirth))
-                isValid = false;
-            return isValid;
-        }
-
-        private void MeCardGenerate()
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.Append("MECARD:");
-            //Name
-            builder.Append("N:");
-            string tempStr = tbMeLastName.Text;
-            if (!string.IsNullOrWhiteSpace(tempStr))
-                builder.Append(StringMethod.MeCardStringRevamp(tempStr));
-            builder.Append(',');
-            builder.Append(StringMethod.MeCardStringRevamp(tbMeFirstName.Text));
-            builder.Append(';');
-            //Phone
-            MePhoneAppend(ref builder, wtbMePhone.Text);
-            //Email
-            MeBuilderAppend(ref builder, wtbMeEmail.Text, "EMAIL:");
-            //URL
-            MeBuilderAppend(ref builder, wtbMeUrl.Text, "URL:");
-            //Birthday
-            MeBirthdayAppend(ref builder);
-            //Memo
-            MeBuilderAppend(ref builder, tbMeMemo.Text, "NOTE:");
-            //Address
-            MeBuilderAppend(ref builder, tbMeAddress.Text, "ADR:");
-            builder.Append(';');
-            qrCodeGeoControl.Text = builder.ToString();
-        }
-
-        private void MePhoneAppend(ref StringBuilder builder, string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-                return;
-            builder.Append("TEL:");
-            builder.Append(StringMethod.MeCardPhoneRevamp(input));
-            builder.Append(';');
-        }
-
-        private void MeBuilderAppend(ref StringBuilder builder, string input, string header)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-                return;
-            builder.Append(header);
-            builder.Append(StringMethod.MeCardStringRevamp(input));
-            builder.Append(';');
-        }
-
-        private void MeBirthdayAppend(ref StringBuilder builder)
-        {
-            if (!dtpMeBirth.Value.HasValue)
-                return;
-            DateTime date = dtpMeBirth.Value.GetValueOrDefault();
-            builder.Append("BDAY:");
-            builder.Append(date.ToString("yyyyMMdd"));
-            builder.Append(';');
-            
-        }
+        
 
         private void btnGenerate_Click(object sender, RoutedEventArgs e)
         {
             int index = tcBarcodeContent.SelectedIndex;
-            bool valide = ValidationInput(index);
+            ValidationInput(index);
         }
 
         #region Collapse button
@@ -229,7 +170,6 @@ namespace QrCodeGenerator
         {
             int index = cbSelectContent.SelectedIndex;
             ClearField(index);
-            ValidationInput(index);
         }
 
         private void ClearField(int selectedIndex)
@@ -238,17 +178,32 @@ namespace QrCodeGenerator
             {
                 case 0:
                     wtbURLUri.Text = string.Empty;
+                    UIValidation.SetUpValidControl(wtbURLUri);
                     break;
                 case 1:
+                    pageMeCard.Clear();
                     break;
                 case 2:
+                    pageVCard.Clear();
                     break;
                 case 3:
+                    pagePhone.Clear();
+                    break;
+                case 4:
+                    pageSMS.Clear();
+                    break;
+                case 5:
+                    pageEmail.Clear();
+                    break;
+                case 6:
+                    tbText.Text = string.Empty;
+                    UIValidation.SetUpValidControl(tbText);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("selectedIndex",
                         string.Format("SelectedIndex {0} not support", selectedIndex.ToString()));
             }
+            qrCodeGeoControl.Text = string.Empty;
         }
 
         #endregion

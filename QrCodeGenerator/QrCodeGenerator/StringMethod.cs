@@ -17,6 +17,7 @@
 */
 using System;
 using System.Text;
+using Xceed.Wpf.Toolkit;
 
 namespace QrCodeGenerator
 {
@@ -47,6 +48,12 @@ namespace QrCodeGenerator
                     builder.Append(c);
             }
             return builder.ToString();
+        }
+
+        internal static string MeCardBirthRevamp(DateTimePicker dtPicker)
+        {
+            DateTime date = dtPicker.Value.GetValueOrDefault();
+            return date.ToString("yyyyMMdd");
         }
 
     }

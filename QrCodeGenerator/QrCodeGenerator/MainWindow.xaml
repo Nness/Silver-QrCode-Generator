@@ -4,7 +4,8 @@
         xmlns:my="clr-namespace:Gma.QrCodeNet.Encoding.Windows.WPF;assembly=Gma.QrCodeNet.Encoding"
         xmlns:ec="clr-namespace:Gma.QrCodeNet.Encoding;assembly=Gma.QrCodeNet.Encoding"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:local="clr-namespace:QrCodeGenerator" 
+        xmlns:local="clr-namespace:QrCodeGenerator"
+        xmlns:tabPage="clr-namespace:QrCodeGenerator.TabPage"
         Height="350" Width="732" Icon="Images/QrCodeNet.png"
         Title="QrCode.Net - Silverlancer" MinWidth="350" MinHeight="250" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Name="mainWindows">
@@ -41,52 +42,46 @@
             <ComboBoxItem ToolTip="Web Site">URL</ComboBoxItem>
             <ComboBoxItem ToolTip="MeCard(PhoneBook)">MeCard</ComboBoxItem>
             <ComboBoxItem ToolTip="vCard(Business card)">vCard</ComboBoxItem>
+            <ComboBoxItem ToolTip="Phone Call">Phone Call</ComboBoxItem>
+            <ComboBoxItem ToolTip="Send SMS">SMS</ComboBoxItem>
+            <ComboBoxItem ToolTip="Send Email">Email</ComboBoxItem>
             <ComboBoxItem ToolTip="Text">Text</ComboBoxItem>
         </ComboBox>
         <TabControl Grid.Column="0" Grid.Row="1" Height="auto" HorizontalAlignment="Stretch" Margin="0" Name="tcBarcodeContent" VerticalAlignment="Stretch" Width="auto">
             <TabItem Header="URL" Name="tiURL" Visibility="Collapsed">
                 <StackPanel>
                     <Label Content="URL" Name="lbURL" FontWeight="Bold" />
-                    <xctk:WatermarkTextBox Height="Auto" Name="wtbURLUri" Width="Auto" AcceptsTab="False" TextWrapping="Wrap" Watermark="http://www.google.com" BorderThickness="0.5"/>
+                    <xctk:WatermarkTextBox Height="Auto" Name="wtbURLUri" Width="Auto" AcceptsTab="False" TextWrapping="Wrap" Watermark="http://www.google.com"/>
                 </StackPanel>
             </TabItem>
             <TabItem Header="MeCard" Name="tiMeCard" Visibility="Collapsed">
                 <Grid>
                     <ScrollViewer>
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold">First Name</TextBlock>
-                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeFirstName"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
-                            <TextBlock  >Last Name</TextBlock>
-                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeLastName"
-                                        VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
-                            <TextBlock >Phone</TextBlock>
-                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="Phone" Name="wtbMePhone" Margin="5, 0, 0, 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" BorderThickness="0.5"/>
-                            <TextBlock  >Email</TextBlock>
-                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="bala@name.com" Name="wtbMeEmail" Margin="5, 0, 0, 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" BorderThickness="0.5"/>
-                            <TextBlock >URL</TextBlock>
-                            <xctk:WatermarkTextBox TextWrapping="Wrap" Watermark="http://www.google.com" Name="wtbMeUrl" Margin="5, 0, 0, 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" BorderThickness="0.5"/>
-                            <TextBlock >Birth Day</TextBlock>
-                            <xctk:DateTimePicker Format="ShortDate" Name="dtpMeBirth" Margin="5, 0, 0, 0"
-                                HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" BorderThickness="0.5"/>
-                            <TextBlock >Memo</TextBlock>
-                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeMemo"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
-                            <TextBlock >Address</TextBlock>
-                            <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbMeAddress"
-                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap" BorderThickness="0.5"/>
-                        </StackPanel>
+                        <tabPage:MeCardPage x:Name="pageMeCard"/>
                     </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem Header="vCard" Name="tivCard" Visibility="Collapsed">
-                
+                <Grid>
+                    <ScrollViewer>
+                        <tabPage:vCardPage x:Name="pageVCard"></tabPage:vCardPage>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Phone" Name="tiPhone" Visibility="Collapsed">
+                <tabPage:PhonePage x:Name="pagePhone"/>
+            </TabItem>
+            <TabItem Header="SMS" Name="tiSMS" Visibility="Collapsed">
+                <tabPage:SMSPage x:Name="pageSMS"/>
+            </TabItem>
+            <TabItem Header="Email" Name="tiEmail" Visibility="Collapsed">
+                <tabPage:EmailPage x:Name="pageEmail"/>
             </TabItem>
             <TabItem Header="Text" Name="tiText" Visibility="Collapsed">
-                
+                <StackPanel>
+                    <TextBox Margin="5, 0, 0, 0" Width="Auto" Name="tbText" AcceptsReturn="True"
+                        VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+                </StackPanel>
             </TabItem>
         </TabControl>
         <GridSplitter Grid.Column="1" Grid.RowSpan="3" Height="Auto" HorizontalAlignment="Left" Margin="0" Name="gridSplitter" VerticalAlignment="Stretch" Width="5" Background="#B561B0D2" DragCompleted="gridSplitter_DragCompleted" />

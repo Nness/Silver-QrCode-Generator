@@ -90,6 +90,18 @@
       <DependentUpon>Save.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringMethod.cs" />
+    <Compile Include="TabPage\EmailPage.xaml.cs">
+      <DependentUpon>EmailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabPage\MeCardPage.xaml.cs">
+      <DependentUpon>MeCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabPage\PhonePage.xaml.cs">
+      <DependentUpon>PhonePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabPage\SMSPage.xaml.cs">
+      <DependentUpon>SMSPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TabPage\vCardPage.xaml.cs">
       <DependentUpon>vCardPage.xaml</DependentUpon>
     </Compile>
@@ -111,6 +123,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Save.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabPage\EmailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabPage\MeCardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabPage\PhonePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabPage\SMSPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

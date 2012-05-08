@@ -26,19 +26,25 @@ namespace QrCodeGenerator
 {
     internal static class UIValidation
     {
-        internal static bool ValidateURI(WatermarkTextBox wmTextBox)
+        internal static bool ValidateURI(WatermarkTextBox wmTextBox, bool isRequired)
         {
             string input = wmTextBox.Text.TrimStart(' ').TrimEnd(' ');
             wmTextBox.Text = input;
 
             if (string.IsNullOrEmpty(input))
             {
-                SetUpValidControl(wmTextBox);
-                return true;
+                if (!isRequired)
+                {
+                    SetUpValidControl(wmTextBox);
+                    return true;
+                }
+                else
+                {
+                    SetUpUnvalideControl(wmTextBox, "This field is required.");
+                    return false;
+                }
             }
 
-            
-            
             try
             {
                 Uri uri = new Uri(input);
@@ -89,15 +95,23 @@ namespace QrCodeGenerator
         internal const string PhoneReg = @"^[+]?[0-9\(\)\- ]{1,24}$";
         internal const string EmailReg = @"^[a-z0-9._%+-]+@(([a-z0-9.-]+\.[a-z]{2,4})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))$";
 
-        internal static bool RegexValidate(WatermarkTextBox wmTextbox, string regularStr, string errorMsg)
+        internal static bool RegexValidate(WatermarkTextBox wmTextbox, string regularStr, string errorMsg, bool isRequired)
         {
             string input = wmTextbox.Text.TrimStart(' ').TrimEnd(' ');
             wmTextbox.Text = input;
 
             if (string.IsNullOrEmpty(input))
             {
-                SetUpValidControl(wmTextbox);
-                return true;
+                if (!isRequired)
+                {
+                    SetUpValidControl(wmTextbox);
+                    return true;
+                }
+                else
+                {
+                    SetUpUnvalideControl(wmTextbox, "This field is required.");
+                    return false;
+                }
             }
 
             Regex re = new Regex(regularStr);

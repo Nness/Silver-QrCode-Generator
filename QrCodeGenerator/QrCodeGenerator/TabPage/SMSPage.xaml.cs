@@ -26,36 +26,50 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Diagnostics;
 
-namespace QrCodeGenerator
+namespace QrCodeGenerator.TabPage
 {
     /// <summary>
-    /// Interaction logic for About.xaml
+    /// Interaction logic for SMSPage.xaml
     /// </summary>
-    public partial class About : Window
+    public partial class SMSPage : UserControl
     {
-        public About()
+        public SMSPage()
         {
             InitializeComponent();
         }
 
-        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        internal bool isSMSValid(out string smsStr)
         {
-            string uri = navigateUri.NavigateUri.ToString();
-
-            Process.Start(new ProcessStartInfo(uri));
-            e.Handled = true;
+            bool isValid = true;
+            smsStr = string.Empty;
+            if (!UIValidation.RegexValidate(wtbSMSPhone, UIValidation.PhoneReg, "Invalide phone format", true))
+                isValid = false;
+            if (!UIValidation.ValidateRequiredTextBox(tbSMSMessage))
+                isValid = false;
+            if (isValid)
+                smsStr = SMSGenerate();
+            return isValid;
         }
 
-        private void CopyRight_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        private string SMSGenerate()
         {
-            string uri = navigateCopyRight.NavigateUri.ToString();
-
-            Process.Start(new ProcessStartInfo(uri));
-            e.Handled = true;
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SMSTO:");
+            builder.Append(StringMethod.MeCardPhoneRevamp(wtbSMSPhone.Text));
+            builder.Append(":");
+            builder.Append(tbSMSMessage.Text.TrimStart(' ').TrimEnd(' '));
+            return builder.ToString();
         }
 
+        internal void Clear()
+        {
+            wtbSMSPhone.Text = string.Empty;
+            UIValidation.SetUpValidControl(wtbSMSPhone);
+            tbSMSMessage.Text = string.Empty;
+            UIValidation.SetUpValidControl(tbSMSMessage);
+        }
     }
 }

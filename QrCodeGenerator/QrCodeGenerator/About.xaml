@@ -1,7 +1,7 @@
 ﻿<Window x:Class="QrCodeGenerator.About"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="About" Height="187" Width="300" ResizeMode="NoResize" Icon="Images/QrCodeNet.png">
+        Title="About" Height="343" Width="407" ResizeMode="NoResize" Icon="Images/QrCodeNet.png" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="56" />
@@ -27,6 +27,18 @@
             </TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10, 5, 0, 0" Text="Developer" VerticalAlignment="Top" />
             <TextBlock Grid.Column="1" Grid.Row="1" Height="23" Width="Auto" HorizontalAlignment="Left" Margin="10, 5, 0, 0" Text="Silverlancer (Jason He)" VerticalAlignment="Top" >
+            </TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Height="23" HorizontalAlignment="Left" Margin="10, 5, 0, 0" Text="Copyright" VerticalAlignment="Top" />
+            <TextBlock Grid.Column="1" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" Margin="10, 5, 10, 0" 
+                       Text="Silver QrCode Generator Copyright (c) 2012 CanXing(Jason) He" VerticalAlignment="Top" TextWrapping="Wrap"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" Margin="10,43,10,0" 
+                       Text="This program comes with ABSOLUTELY NO WARRANTY; for details check Link below. This is free software, and you are welcome to redistribute it under certain conditions; check Link below for details." 
+                       VerticalAlignment="Top" TextWrapping="Wrap"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Height="23" Width="Auto" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" >
+                <Hyperlink NavigateUri="http://www.opensource.org/licenses/gpl-3.0.html" RequestNavigate="CopyRight_RequestNavigate"
+                           Name="navigateCopyRight">
+                    GNU General Public License, Version 3
+                </Hyperlink>
             </TextBlock>
         </Grid>
     </Grid>
