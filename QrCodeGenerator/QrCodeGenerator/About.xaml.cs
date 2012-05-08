@@ -41,18 +41,10 @@ namespace QrCodeGenerator
             InitializeComponent();
         }
 
-        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        private void RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
-            string uri = navigateUri.NavigateUri.ToString();
-
-            Process.Start(new ProcessStartInfo(uri));
-            e.Handled = true;
-        }
-
-        private void CopyRight_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            string uri = navigateCopyRight.NavigateUri.ToString();
-
+            string uri;
+            uri = ((Hyperlink)sender).NavigateUri.ToString();
             Process.Start(new ProcessStartInfo(uri));
             e.Handled = true;
         }
