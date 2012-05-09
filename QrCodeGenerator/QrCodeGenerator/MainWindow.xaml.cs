@@ -86,6 +86,11 @@ namespace QrCodeGenerator
                         qrCodeGeoControl.Text = emailStr;
                     break;
                 case 6:
+                    string iCalStr;
+                    if (pageiCal.isCalValid(out iCalStr))
+                        qrCodeGeoControl.Text = iCalStr;
+                    break;
+                case 7:
                     if (UIValidation.ValidateRequiredTextBox(tbText))
                         qrCodeGeoControl.Text = tbText.Text;
                     break;
@@ -196,6 +201,9 @@ namespace QrCodeGenerator
                     pageEmail.Clear();
                     break;
                 case 6:
+                    pageiCal.Clear();
+                    break;
+                case 7:
                     tbText.Text = string.Empty;
                     UIValidation.SetUpValidControl(tbText);
                     break;

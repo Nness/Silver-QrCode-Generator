@@ -93,6 +93,9 @@
     <Compile Include="TabPage\EmailPage.xaml.cs">
       <DependentUpon>EmailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TabPage\iCalPage.xaml.cs">
+      <DependentUpon>iCalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TabPage\MeCardPage.xaml.cs">
       <DependentUpon>MeCardPage.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TabPage\EmailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabPage\iCalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

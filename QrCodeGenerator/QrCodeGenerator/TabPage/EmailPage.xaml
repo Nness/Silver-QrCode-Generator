@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <TextBlock FontWeight="Bold">Email</TextBlock>
-        <xctk:WatermarkTextBox Margin="5, 0, 0, 0"  Width="Auto" Name="wtbEmail" Watermark="Phone No."
+        <xctk:WatermarkTextBox Margin="5, 0, 0, 0"  Width="Auto" Name="wtbEmail" Watermark="bala@mail.com"
                                VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
         <TextBlock FontWeight="Bold">Subject</TextBlock>
         <TextBox Margin="5, 0, 0, 0" Width="Auto" Name="tbEmailSubject"

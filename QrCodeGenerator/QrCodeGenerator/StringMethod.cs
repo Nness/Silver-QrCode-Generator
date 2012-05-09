@@ -56,5 +56,11 @@ namespace QrCodeGenerator
             return date.ToString("yyyyMMdd");
         }
 
+        internal static string iCalDateTimeRevamp(DateTimePicker dtPicker)
+        {
+            DateTime date = dtPicker.Value.GetValueOrDefault();
+            return date.ToString(@"yyyyMMdd\THHmmss\Z");
+        }
+
     }
 }

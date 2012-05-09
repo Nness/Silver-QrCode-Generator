@@ -45,6 +45,7 @@
             <ComboBoxItem ToolTip="Phone Call">Phone Call</ComboBoxItem>
             <ComboBoxItem ToolTip="Send SMS">SMS</ComboBoxItem>
             <ComboBoxItem ToolTip="Send Email">Email</ComboBoxItem>
+            <ComboBoxItem ToolTip="Calender event">Event</ComboBoxItem>
             <ComboBoxItem ToolTip="Text">Text</ComboBoxItem>
         </ComboBox>
         <TabControl Grid.Column="0" Grid.Row="1" Height="auto" HorizontalAlignment="Stretch" Margin="0" Name="tcBarcodeContent" VerticalAlignment="Stretch" Width="auto">
@@ -76,6 +77,9 @@
             </TabItem>
             <TabItem Header="Email" Name="tiEmail" Visibility="Collapsed">
                 <tabPage:EmailPage x:Name="pageEmail"/>
+            </TabItem>
+            <TabItem Header="Event" Name="tiEvent" Visibility="Collapsed">
+                <tabPage:iCalPage x:Name="pageiCal"/>
             </TabItem>
             <TabItem Header="Text" Name="tiText" Visibility="Collapsed">
                 <StackPanel>

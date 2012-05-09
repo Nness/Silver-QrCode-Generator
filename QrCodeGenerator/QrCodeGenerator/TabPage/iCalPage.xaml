@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="QrCodeGenerator.TabPage.iCalPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <TextBlock FontWeight="Bold">Summary</TextBlock>
+        <TextBox Margin="5, 0, 0, 0"  Width="Auto" Name="tbiCalSummary"
+                               VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
+        <TextBlock FontWeight="Bold">Start Time</TextBlock>
+        <xctk:DateTimePicker Name="dtpiCalStart" Margin="5, 0, 0, 0" Width="Auto" HorizontalAlignment="Stretch" Format="UniversalSortableDateTime"/>
+        <TextBlock FontWeight="Bold">End Time</TextBlock>
+        <xctk:DateTimePicker Name="dtpiCalEnd" Margin="5, 0, 0, 0" Width="Auto" HorizontalAlignment="Stretch" Format="UniversalSortableDateTime"/>
+    </StackPanel>
+</UserControl>
