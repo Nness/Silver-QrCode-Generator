@@ -22,6 +22,7 @@ Generator require .Net 4.0 runtime. Which you can get from [Microsoft download p
 * Phone: Encode phone inside QrCode, Decoder can detect and ask whether you want to call that number or save it.
 * SMS: Similar to Phone, it will send the message you have put inside to specific phone number.
 * Email: Same as SMS but on email address.
+* Event: Calender event, it will register to Mobile's calender application. 
 * Text: Anything that you would like to put inside QrCode.
 
 All functions support any language input. Some decoder internally think those specification are only for English input. Which is false. If you encounter that, please install better decoder. I would recommand i-nigma which is free and available on any mobile platform.
