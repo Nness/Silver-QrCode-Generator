@@ -86,6 +86,16 @@
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
     <Compile Include="GridLengthAnimation.cs" />
+    <Compile Include="Model\EmailContent.cs" />
+    <Compile Include="Model\iCalContent.cs" />
+    <Compile Include="Model\MeCardContent.cs" />
+    <Compile Include="Model\PhoneContent.cs" />
+    <Compile Include="Model\QrContent.cs" />
+    <Compile Include="Model\SMSContent.cs" />
+    <Compile Include="Model\StringAppend.cs" />
+    <Compile Include="Model\StringValidation.cs" />
+    <Compile Include="Model\UrlContent.cs" />
+    <Compile Include="Model\vCardContent.cs" />
     <Compile Include="Save.xaml.cs">
       <DependentUpon>Save.xaml</DependentUpon>
     </Compile>

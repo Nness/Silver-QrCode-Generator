@@ -111,7 +111,7 @@ namespace QrCodeGenerator.TabPage
             if (!dtpMeBirth.Value.HasValue)
                 return;
             builder.Append("BDAY:");
-            builder.Append(StringMethod.MeCardBirthRevamp(dtpMeBirth));
+            builder.Append(StringMethod.MeCardBirthRevamp(dtpMeBirth.Value));
             builder.Append(';');
         }
 

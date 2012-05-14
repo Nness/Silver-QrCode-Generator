@@ -90,8 +90,8 @@ namespace QrCodeGenerator.TabPage
             StringBuilder builder = new StringBuilder();
             builder.Append("BEGIN:VEVENT\n");
             BuilderAppend(ref builder, tbiCalSummary.Text, "SUMMARY:");
-            BuilderAppend(ref builder, StringMethod.iCalDateTimeRevamp(dtpiCalStart), "DTSTART:");
-            BuilderAppend(ref builder, StringMethod.iCalDateTimeRevamp(dtpiCalEnd), "DTEND:");
+            BuilderAppend(ref builder, StringMethod.iCalDateTimeRevamp(dtpiCalStart.Value), "DTSTART:");
+            BuilderAppend(ref builder, StringMethod.iCalDateTimeRevamp(dtpiCalEnd.Value), "DTEND:");
             builder.Append("END:VEVENT");
             return builder.ToString();
         }

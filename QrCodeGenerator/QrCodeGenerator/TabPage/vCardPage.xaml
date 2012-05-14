@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="201">
+             d:DesignHeight="557" d:DesignWidth="201">
     <StackPanel>
         <TextBlock FontWeight="Bold">First Name</TextBlock>
         <TextBox Name="tbVFirstName" Margin="5, 0, 0, 0" Width="Auto" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>

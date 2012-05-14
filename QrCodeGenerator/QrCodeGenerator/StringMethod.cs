@@ -50,15 +50,15 @@ namespace QrCodeGenerator
             return builder.ToString();
         }
 
-        internal static string MeCardBirthRevamp(DateTimePicker dtPicker)
+        internal static string MeCardBirthRevamp(DateTime? datetime)
         {
-            DateTime date = dtPicker.Value.GetValueOrDefault();
+            DateTime date = datetime.GetValueOrDefault();
             return date.ToString("yyyyMMdd");
         }
 
-        internal static string iCalDateTimeRevamp(DateTimePicker dtPicker)
+        internal static string iCalDateTimeRevamp(DateTime? datetime)
         {
-            DateTime date = dtPicker.Value.GetValueOrDefault();
+            DateTime date = datetime.GetValueOrDefault();
             return date.ToString(@"yyyyMMdd\THHmmss\Z");
         }
 

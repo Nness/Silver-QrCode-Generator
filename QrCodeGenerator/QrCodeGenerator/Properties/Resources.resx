@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,45 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Error_iCal_StartTime_Bigger" xml:space="preserve">
+    <value>StartTime is later than EndTime</value>
+    <comment>Error message for when event's start time is later than end time.</comment>
+  </data>
+  <data name="Error_InvalidUrl" xml:space="preserve">
+    <value>Url is invalid</value>
+    <comment>Error message for when a Url field's value is invalid.</comment>
+  </data>
+  <data name="Error_Invalid_Birthday" xml:space="preserve">
+    <value>Your birthday is in the future?</value>
+    <comment>Error message for birthday that is later than today.</comment>
+  </data>
+  <data name="Error_Invalid_Email_Format" xml:space="preserve">
+    <value>Email address has invalid format</value>
+    <comment>Error message for when a Email field's value is invalid format.</comment>
+  </data>
+  <data name="Error_Invalid_Phone" xml:space="preserve">
+    <value>Phone number has invalid format</value>
+    <comment>Error message for when a Phone field's value is invalid format</comment>
+  </data>
+  <data name="Error_MissingUrl" xml:space="preserve">
+    <value>Url is missing</value>
+    <comment>Error message for when a Url field is required but it's empty.</comment>
+  </data>
+  <data name="Error_Missing_Email" xml:space="preserve">
+    <value>Email address is missing</value>
+    <comment>Error message for when a Email field is required but it's empty.</comment>
+  </data>
+  <data name="Error_Missing_Phone" xml:space="preserve">
+    <value>Phone number is missing</value>
+    <comment>Error message for when a Phone field is required but it's empty.</comment>
+  </data>
+  <data name="Error_Missing_Required_Field" xml:space="preserve">
+    <value> is Missing</value>
+    <comment>Required field is missing.</comment>
+  </data>
 </root>
