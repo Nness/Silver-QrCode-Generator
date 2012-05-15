@@ -94,6 +94,7 @@
     <Compile Include="Model\SMSContent.cs" />
     <Compile Include="Model\StringAppend.cs" />
     <Compile Include="Model\StringValidation.cs" />
+    <Compile Include="Model\TextContent.cs" />
     <Compile Include="Model\UrlContent.cs" />
     <Compile Include="Model\vCardContent.cs" />
     <Compile Include="Save.xaml.cs">
@@ -119,6 +120,16 @@
       <DependentUpon>vCardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UIValidation.cs" />
+    <Compile Include="ViewModel\EmailViewModel.cs" />
+    <Compile Include="ViewModel\iCalViewModel.cs" />
+    <Compile Include="ViewModel\MeCardViewModel.cs" />
+    <Compile Include="ViewModel\PhoneViewModel.cs" />
+    <Compile Include="ViewModel\PropertyChangedExtensions.cs" />
+    <Compile Include="ViewModel\QrViewModelBase.cs" />
+    <Compile Include="ViewModel\SMSViewModel.cs" />
+    <Compile Include="ViewModel\TextViewModel.cs" />
+    <Compile Include="ViewModel\UrlViewModel.cs" />
+    <Compile Include="ViewModel\vCardViewModel.cs" />
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
