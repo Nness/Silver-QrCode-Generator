@@ -118,12 +118,16 @@ namespace QrCodeGenerator
                 imageFormat = ImageFormatEnum.WDP;
             else if (fileNameCheck.EndsWith("eps"))
             {
+                Properties.Settings.Default.SaveSize = imageSize;
+                Properties.Settings.Default.Save();
                 CreateEPSImage(imageSize, fileName);
                 return;
             }
             else
                 return;
 
+            Properties.Settings.Default.SaveSize = imageSize;
+            Properties.Settings.Default.Save();
             int pixelSize = (int)(imageSize * 96);
 
             DrawingBrushRenderer dRenderer = new DrawingBrushRenderer(new FixedCodeSize(pixelSize, QuietZoneModules.Two),
