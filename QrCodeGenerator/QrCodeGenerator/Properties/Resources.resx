@@ -153,4 +153,8 @@
     <value> is Missing</value>
     <comment>Required field is missing.</comment>
   </data>
+  <data name="Error_SelectedIndex_OutOfRange" xml:space="preserve">
+    <value>Combobox's selected index is out of range.</value>
+    <comment>Error when Combobox's selected index is not within TabFormViewModel's array's index limit.</comment>
+  </data>
 </root>

@@ -160,7 +160,7 @@ namespace QrCodeGenerator.Model
         {
             if (StringValidation.IsDateTimeMissing(StartTime))
                 return "Start Time" + Resources.Error_Missing_Required_Field;
-            else if (StringValidation.IsATimeBiggerThanBTime(StartTime, EndTime))
+            else if (!StringValidation.IsDateTimeMissing(EndTime) && StringValidation.IsATimeBiggerThanBTime(StartTime, EndTime))
                 return Resources.Error_iCal_StartTime_Bigger;
             return null;
         }
@@ -169,7 +169,7 @@ namespace QrCodeGenerator.Model
         {
             if (StringValidation.IsDateTimeMissing(EndTime))
                 return "End Time" + Resources.Error_Missing_Required_Field;
-            else if (StringValidation.IsATimeBiggerThanBTime(StartTime, EndTime))
+            else if (!StringValidation.IsDateTimeMissing(StartTime) && StringValidation.IsATimeBiggerThanBTime(StartTime, EndTime))
                 return Resources.Error_iCal_StartTime_Bigger;
             return null;
         }

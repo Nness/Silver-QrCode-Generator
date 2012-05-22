@@ -35,6 +35,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal vCardViewModel()
+        {
+            m_vCardContent = new vCardContent();
+        }
+
         internal vCardViewModel(vCardContent vcardContent)
         {
             if (vcardContent == null)
@@ -47,7 +52,7 @@ namespace QrCodeGenerator.ViewModel
 
         #region Properties
 
-        internal string FirstName
+        public string FirstName
         {
             get
             {
@@ -62,7 +67,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string LastName
+        public string LastName
         {
             get
             {
@@ -77,7 +82,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Mobile
+        public string Mobile
         {
             get
             {
@@ -92,7 +97,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Title
+        public string Title
         {
             get
             {
@@ -107,7 +112,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Organization
+        public string Organization
         {
             get
             {
@@ -122,7 +127,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string PhoneHome
+        public string PhoneHome
         {
             get
             {
@@ -137,7 +142,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string PhoneWork
+        public string PhoneWork
         {
             get
             {
@@ -152,7 +157,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string FaxHome
+        public string FaxHome
         {
             get
             {
@@ -167,7 +172,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string FaxWork
+        public string FaxWork
         {
             get
             {
@@ -182,7 +187,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Email
+        public string Email
         {
             get
             {
@@ -197,7 +202,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string URL
+        public string URL
         {
             get
             {
@@ -212,7 +217,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Note
+        public string Note
         {
             get
             {
@@ -227,7 +232,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal DateTime? BirthDay
+        public DateTime? BirthDay
         {
             get
             {
@@ -242,7 +247,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Address
+        public string Address
         {
             get
             {
@@ -279,5 +284,23 @@ namespace QrCodeGenerator.ViewModel
         }
 
         #endregion
+
+        internal override void Clear()
+        {
+            this.FirstName = string.Empty;
+            this.LastName = string.Empty;
+            this.Mobile = string.Empty;
+            this.Title = string.Empty;
+            this.Organization = string.Empty;
+            this.PhoneHome = string.Empty;
+            this.PhoneWork = string.Empty;
+            this.FaxHome = string.Empty;
+            this.FaxWork = string.Empty;
+            this.Email = string.Empty;
+            this.URL = string.Empty;
+            this.Note = string.Empty;
+            this.BirthDay = null;
+            this.Address = string.Empty;
+        }
     }
 }

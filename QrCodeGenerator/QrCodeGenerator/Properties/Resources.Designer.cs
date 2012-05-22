@@ -140,5 +140,14 @@ namespace QrCodeGenerator.Properties {
                 return ResourceManager.GetString("Error_MissingUrl", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combobox&apos;s selected index is out of range..
+        /// </summary>
+        internal static string Error_SelectedIndex_OutOfRange {
+            get {
+                return ResourceManager.GetString("Error_SelectedIndex_OutOfRange", resourceCulture);
+            }
+        }
     }
 }

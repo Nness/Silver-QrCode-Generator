@@ -79,7 +79,12 @@ namespace QrCodeGenerator.Model
 
         internal override string GetContent
         {
-            get { return Url.TrimStart(' ').TrimEnd(' '); }
+            get 
+            {
+                if (string.IsNullOrWhiteSpace(Url))
+                    return string.Empty;
+                return Url.TrimStart(' ').TrimEnd(' '); 
+            }
         } 
 
         #endregion

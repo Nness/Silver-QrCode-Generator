@@ -20,5 +20,7 @@ namespace QrCodeGenerator.ViewModel
     internal abstract class QrViewModelBase
     {
         internal abstract string GetContent();
+
+        internal abstract void Clear();
     }
 }

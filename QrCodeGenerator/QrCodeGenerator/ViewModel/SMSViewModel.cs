@@ -35,6 +35,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal SMSViewModel()
+        {
+            m_SMSContent = new SMSContent();
+        }
+
         internal SMSViewModel(SMSContent smsContent)
         {
             if (smsContent == null)
@@ -50,7 +55,7 @@ namespace QrCodeGenerator.ViewModel
         /// <summary>
         /// Get/Set Email Address
         /// </summary>
-        internal string Phone
+        public string Phone
         {
             get
             {
@@ -68,7 +73,7 @@ namespace QrCodeGenerator.ViewModel
         /// <summary>
         /// Get/Set Email's Subject
         /// </summary>
-        internal string Message
+        public string Message
         {
             get
             {
@@ -105,6 +110,12 @@ namespace QrCodeGenerator.ViewModel
         }
 
         #endregion
+
+        internal override void Clear()
+        {
+            this.Phone = string.Empty;
+            this.Message = string.Empty;
+        }
 
     }
 }

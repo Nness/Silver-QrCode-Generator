@@ -1,0 +1,131 @@
+﻿<!--
+ *  Silver QrCode Generator - Windows WPF application to generate QrCode.
+ *  Copyright (c) 2012 Canxing(Jason) He
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see<http://www.gnu.org/licenses/> . 
+ -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModel="clr-namespace:QrCodeGenerator.ViewModel"
+                    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                    xmlns:se="http://schemas.microsoft.com/expression/2010/interactions"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="EmailView.xaml"/>
+        <ResourceDictionary Source="iCalView.xaml"/>
+        <ResourceDictionary Source="MeCardView.xaml"/>
+        <ResourceDictionary Source="PhoneView.xaml"/>
+        <ResourceDictionary Source="SMSView.xaml"/>
+        <ResourceDictionary Source="TextView.xaml"/>
+        <ResourceDictionary Source="UrlView.xaml"/>
+        <ResourceDictionary Source="vCardView.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <DataTemplate x:Key="TabFormView"
+                  DataType="viewModel:t">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <ComboBox Height="23" Grid.Row="0"
+                      SelectedIndex="{Binding Path=SelectedIndex, Mode=TwoWay}">
+                <ComboBoxItem ToolTip="Web Site">URL</ComboBoxItem>
+                <ComboBoxItem ToolTip="MeCard(PhoneBook)">MeCard</ComboBoxItem>
+                <ComboBoxItem ToolTip="vCard(Business card)">vCard</ComboBoxItem>
+                <ComboBoxItem ToolTip="Phone Call">Phone Call</ComboBoxItem>
+                <ComboBoxItem ToolTip="Send SMS">SMS</ComboBoxItem>
+                <ComboBoxItem ToolTip="Send Email">Email</ComboBoxItem>
+                <ComboBoxItem ToolTip="Calender event">Event</ComboBoxItem>
+                <ComboBoxItem ToolTip="Text">Text</ComboBoxItem>
+            </ComboBox>
+            <TabControl Grid.Row="1"
+                        Name="tcBarcodeContent"
+                        SelectedIndex="{Binding Path=SelectedIndex, Mode=OneWay}">
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource UrlView}"
+                                    Content="{Binding Path=UrlView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource MeCardView}"
+                                    Content="{Binding Path=MeCardView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource vCardView}"
+                                    Content="{Binding Path=vCardView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource PhoneView}"
+                                    Content="{Binding Path=PhoneView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource SMSView}"
+                                    Content="{Binding Path=SMSView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource EmailView}"
+                                    Content="{Binding Path=EmailView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource iCalView}"
+                                    Content="{Binding Path=iCalView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+                <TabItem Visibility="Collapsed">
+                    <AdornerDecorator>
+                        <ContentControl ContentTemplate="{StaticResource TextView}"
+                                    Content="{Binding Path=TextView, Mode=OneWay}"/>
+                    </AdornerDecorator>
+                </TabItem>
+            </TabControl>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Generate" Grid.Column="0" x:Name="btnGenerate">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger SourceObject="{Binding ElementName=btnGenerate}"
+                                        EventName="Click">
+                            <se:CallMethodAction MethodName="GenerateInputString"
+                                                 TargetObject="{Binding DataContext, ElementName=btnGenerate}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="Clear" Grid.Column="1" x:Name="btnClear">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger SourceObject="{Binding ElementName=btnClear}"
+                                        EventName="Click">
+                            <se:CallMethodAction MethodName="Clear"
+                                                 TargetObject="{Binding DataContext, ElementName=btnClear}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

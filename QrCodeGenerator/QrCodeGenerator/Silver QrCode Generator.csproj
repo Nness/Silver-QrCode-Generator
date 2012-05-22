@@ -59,8 +59,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>dll\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>dll\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -101,25 +107,6 @@
       <DependentUpon>Save.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringMethod.cs" />
-    <Compile Include="TabPage\EmailPage.xaml.cs">
-      <DependentUpon>EmailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TabPage\iCalPage.xaml.cs">
-      <DependentUpon>iCalPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TabPage\MeCardPage.xaml.cs">
-      <DependentUpon>MeCardPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TabPage\PhonePage.xaml.cs">
-      <DependentUpon>PhonePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TabPage\SMSPage.xaml.cs">
-      <DependentUpon>SMSPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TabPage\vCardPage.xaml.cs">
-      <DependentUpon>vCardPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UIValidation.cs" />
     <Compile Include="ViewModel\EmailViewModel.cs" />
     <Compile Include="ViewModel\iCalViewModel.cs" />
     <Compile Include="ViewModel\MeCardViewModel.cs" />
@@ -127,6 +114,7 @@
     <Compile Include="ViewModel\PropertyChangedExtensions.cs" />
     <Compile Include="ViewModel\QrViewModelBase.cs" />
     <Compile Include="ViewModel\SMSViewModel.cs" />
+    <Compile Include="ViewModel\TabFormViewModel.cs" />
     <Compile Include="ViewModel\TextViewModel.cs" />
     <Compile Include="ViewModel\UrlViewModel.cs" />
     <Compile Include="ViewModel\vCardViewModel.cs" />
@@ -146,31 +134,47 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Save.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TabPage\EmailPage.xaml">
+    <Page Include="View\EmailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TabPage\iCalPage.xaml">
+    <Page Include="View\iCalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TabPage\MeCardPage.xaml">
+    <Page Include="View\MeCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TabPage\PhonePage.xaml">
+    <Page Include="View\PhoneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TabPage\SMSPage.xaml">
+    <Page Include="View\SMSView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TabPage\vCardPage.xaml">
+    <Page Include="View\TabFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UrlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\vCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

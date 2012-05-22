@@ -54,20 +54,37 @@ namespace QrCodeGenerator
 
             if (!double.TryParse(wtbSize.Text, out inch))
             {
-                UIValidation.SetUpUnvalideControl(wtbSize, "Please input numbers for image size.");
+                SetUpUnvalideControl(wtbSize, "Please input numbers for image size.");
                 return;
             }
             else
             {
-                UIValidation.SetUpValidControl(wtbSize);
+                SetUpValidControl(wtbSize);
             }
 
             if (inch <= 0)
             {
-                UIValidation.SetUpUnvalideControl(wtbSize, "Size can not be negative or zero"); 
+                SetUpUnvalideControl(wtbSize, "Size can not be negative or zero"); 
             }
 
             this.SaveImageFile(inch);
+        }
+
+        internal static void SetUpValidControl(Control control)
+        {
+            control.ToolTip = null;
+            control.BorderBrush = null;
+        }
+
+        internal static void SetUpUnvalideControl(Control control, string errorMessage)
+        {
+            ToolTip ttip = new ToolTip();
+            ttip.Content = errorMessage;
+            ttip.Opacity = 0.9;
+
+            ttip.Background = Brushes.LightPink;
+            control.BorderBrush = Brushes.LightPink;
+            control.ToolTip = ttip;
         }
 
 

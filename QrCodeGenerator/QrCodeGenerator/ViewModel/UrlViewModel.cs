@@ -35,6 +35,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal UrlViewModel()
+        {
+            m_UrlContent = new UrlContent();
+        }
+
         internal UrlViewModel(UrlContent urlContent)
         {
             if (urlContent == null)
@@ -47,7 +52,7 @@ namespace QrCodeGenerator.ViewModel
 
         #region Properties
 
-        internal string Url
+        public string Url
         {
             get
             {
@@ -85,6 +90,10 @@ namespace QrCodeGenerator.ViewModel
 
         #endregion
 
+        internal override void Clear()
+        {
+            this.Url = string.Empty;
+        }
 
     }
 }

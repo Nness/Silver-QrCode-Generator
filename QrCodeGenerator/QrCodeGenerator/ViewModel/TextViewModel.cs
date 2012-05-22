@@ -36,6 +36,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal TextViewModel()
+        {
+            m_TextContent = new TextContent();
+        }
+
         internal TextViewModel(TextContent textContent)
         {
             if (textContent == null)
@@ -48,7 +53,7 @@ namespace QrCodeGenerator.ViewModel
 
         #region Properties
 
-        internal string Text
+        public string Text
         {
             get
             {
@@ -85,5 +90,10 @@ namespace QrCodeGenerator.ViewModel
         }
 
         #endregion
+
+        internal override void Clear()
+        {
+            this.Text = string.Empty;
+        }
     }
 }

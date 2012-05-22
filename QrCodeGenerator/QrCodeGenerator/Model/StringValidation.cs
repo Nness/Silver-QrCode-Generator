@@ -72,7 +72,7 @@ namespace QrCodeGenerator.Model
 
         internal static bool IsDateTimeMissing(DateTime? datetime)
         {
-            if (datetime.HasValue)
+            if (!datetime.HasValue)
                 return true;
             return false;
         }

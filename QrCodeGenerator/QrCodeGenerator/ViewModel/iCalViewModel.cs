@@ -35,6 +35,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal iCalViewModel()
+        {
+            m_iCalContent = new iCalContent();
+        }
+
         internal iCalViewModel(iCalContent icalContent)
         {
             if (icalContent == null)
@@ -47,7 +52,7 @@ namespace QrCodeGenerator.ViewModel
 
         #region Properties
 
-        internal string Summary
+        public string Summary
         {
             get
             {
@@ -62,7 +67,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal DateTime? StartTime
+        public DateTime? StartTime
         {
             get
             {
@@ -74,10 +79,11 @@ namespace QrCodeGenerator.ViewModel
                     return;
                 m_iCalContent.StartTime = value;
                 PropertyChanged.Raise(() => StartTime);
+                PropertyChanged.Raise(() => EndTime);
             }
         }
 
-        internal DateTime? EndTime
+        public DateTime? EndTime
         {
             get
             {
@@ -89,6 +95,7 @@ namespace QrCodeGenerator.ViewModel
                     return;
                 m_iCalContent.EndTime = value;
                 PropertyChanged.Raise(() => EndTime);
+                PropertyChanged.Raise(() => StartTime);
             }
         }
 
@@ -114,6 +121,13 @@ namespace QrCodeGenerator.ViewModel
         }
 
         #endregion
+
+        internal override void Clear()
+        {
+            this.Summary = string.Empty;
+            this.StartTime = null;
+            this.EndTime = null;
+        }
 
     }
 }

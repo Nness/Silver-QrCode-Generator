@@ -35,6 +35,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal EmailViewModel()
+        {
+            m_EmailContent = new EmailContent();
+        }
+
         internal EmailViewModel(EmailContent emailContent)
         {
             if (emailContent == null)
@@ -47,7 +52,7 @@ namespace QrCodeGenerator.ViewModel
 
         #region Properties
 
-        internal string Email
+        public string Email
         {
             get
             {
@@ -63,7 +68,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Subject
+        public string Subject
         {
             get
             {
@@ -78,7 +83,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Content
+        public string Content
         {
             get
             {
@@ -115,6 +120,13 @@ namespace QrCodeGenerator.ViewModel
         }
 
         #endregion
+
+        internal override void Clear()
+        {
+            this.Email = string.Empty;
+            this.Subject = string.Empty;
+            this.Content = string.Empty;
+        }
 
     }
 }

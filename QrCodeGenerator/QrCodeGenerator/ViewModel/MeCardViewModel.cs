@@ -35,6 +35,11 @@ namespace QrCodeGenerator.ViewModel
 
         #region Construction
 
+        internal MeCardViewModel()
+        {
+            m_MeCardContent = new MeCardContent();
+        }
+
         internal MeCardViewModel(MeCardContent mecardContent)
         {
             if (mecardContent == null)
@@ -47,7 +52,7 @@ namespace QrCodeGenerator.ViewModel
 
         #region Properties
 
-        internal string FirstName
+        public string FirstName
         {
             get
             {
@@ -62,7 +67,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string LastName
+        public string LastName
         {
             get
             {
@@ -77,7 +82,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Phone
+        public string Phone
         {
             get
             {
@@ -92,7 +97,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Email
+        public string Email
         {
             get
             {
@@ -107,7 +112,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Url
+        public string Url
         {
             get
             {
@@ -122,7 +127,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal DateTime? Birthday
+        public DateTime? Birthday
         {
             get
             {
@@ -137,7 +142,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Memo
+        public string Memo
         {
             get
             {
@@ -152,7 +157,7 @@ namespace QrCodeGenerator.ViewModel
             }
         }
 
-        internal string Address
+        public string Address
         {
             get
             {
@@ -189,5 +194,17 @@ namespace QrCodeGenerator.ViewModel
         }
 
         #endregion
+
+        internal override void Clear()
+        {
+            this.FirstName = string.Empty;
+            this.LastName = string.Empty;
+            this.Phone = string.Empty;
+            this.Email = string.Empty;
+            this.Url = string.Empty;
+            this.Birthday = null;
+            this.Memo = string.Empty;
+            this.Address = string.Empty;
+        }
     }
 }

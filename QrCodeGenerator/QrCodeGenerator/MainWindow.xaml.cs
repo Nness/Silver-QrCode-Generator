@@ -32,6 +32,7 @@ using System.Windows.Shapes;
 using Gma.QrCodeNet.Encoding.Windows.WPF;
 using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Render;
+using QrCodeGenerator.ViewModel;
 using Microsoft.Win32;
 using System.IO;
 
@@ -42,9 +43,13 @@ namespace QrCodeGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TabFormViewModel m_TabFormViewModel = new TabFormViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = m_TabFormViewModel;
         }
 
        
@@ -52,60 +57,60 @@ namespace QrCodeGenerator
         /// Check input and return validation result
         /// </summary>
         /// <returns>true if validation successful</returns>
-        private void ValidationInput(int index)
-        {
-            switch (index)
-            {
-                case 0:
-                    if (UIValidation.ValidateURI(wtbURLUri, true))
-                        qrCodeGeoControl.Text = wtbURLUri.Text;
-                    break;
-                case 1:
-                    string mecardStr;
-                    if (pageMeCard.isMeCardValid(out mecardStr))
-                        qrCodeGeoControl.Text = mecardStr;
-                    break;
-                case 2:
-                    string vcardStr;
-                    if (pageVCard.isVCardValide(out vcardStr))
-                        qrCodeGeoControl.Text = vcardStr;
-                    break;
-                case 3:
-                    string phoneStr;
-                    if (pagePhone.isPhoneValid(out phoneStr))
-                        qrCodeGeoControl.Text = phoneStr;
-                    break;
-                case 4:
-                    string smsStr;
-                    if (pageSMS.isSMSValid(out smsStr))
-                        qrCodeGeoControl.Text = smsStr;
-                    break;
-                case 5:
-                    string emailStr;
-                    if (pageEmail.isEmailValid(out emailStr))
-                        qrCodeGeoControl.Text = emailStr;
-                    break;
-                case 6:
-                    string iCalStr;
-                    if (pageiCal.isCalValid(out iCalStr))
-                        qrCodeGeoControl.Text = iCalStr;
-                    break;
-                case 7:
-                    if (UIValidation.ValidateRequiredTextBox(tbText))
-                        qrCodeGeoControl.Text = tbText.Text;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("index", "Not support such index");
-            }
-        }
+        //private void ValidationInput(int index)
+        //{
+        //    switch (index)
+        //    {
+        //        case 0:
+        //            if (UIValidation.ValidateURI(wtbURLUri, true))
+        //                qrCodeGeoControl.Text = wtbURLUri.Text;
+        //            break;
+        //        case 1:
+        //            string mecardStr;
+        //            if (pageMeCard.isMeCardValid(out mecardStr))
+        //                qrCodeGeoControl.Text = mecardStr;
+        //            break;
+        //        case 2:
+        //            string vcardStr;
+        //            if (pageVCard.isVCardValide(out vcardStr))
+        //                qrCodeGeoControl.Text = vcardStr;
+        //            break;
+        //        case 3:
+        //            string phoneStr;
+        //            if (pagePhone.isPhoneValid(out phoneStr))
+        //                qrCodeGeoControl.Text = phoneStr;
+        //            break;
+        //        case 4:
+        //            string smsStr;
+        //            if (pageSMS.isSMSValid(out smsStr))
+        //                qrCodeGeoControl.Text = smsStr;
+        //            break;
+        //        case 5:
+        //            string emailStr;
+        //            if (pageEmail.isEmailValid(out emailStr))
+        //                qrCodeGeoControl.Text = emailStr;
+        //            break;
+        //        case 6:
+        //            string iCalStr;
+        //            if (pageiCal.isCalValid(out iCalStr))
+        //                qrCodeGeoControl.Text = iCalStr;
+        //            break;
+        //        case 7:
+        //            if (UIValidation.ValidateRequiredTextBox(tbText))
+        //                qrCodeGeoControl.Text = tbText.Text;
+        //            break;
+        //        default:
+        //            throw new ArgumentOutOfRangeException("index", "Not support such index");
+        //    }
+        //}
 
         
 
-        private void btnGenerate_Click(object sender, RoutedEventArgs e)
-        {
-            int index = tcBarcodeContent.SelectedIndex;
-            ValidationInput(index);
-        }
+        //private void btnGenerate_Click(object sender, RoutedEventArgs e)
+        //{
+        //    int index = tcBarcodeContent.SelectedIndex;
+        //    ValidationInput(index);
+        //}
 
         #region Collapse button
         /// <summary>
@@ -171,48 +176,48 @@ namespace QrCodeGenerator
 
         #region Clear Button
 
-        private void btnClear_Click(object sender, RoutedEventArgs e)
-        {
-            int index = cbSelectContent.SelectedIndex;
-            ClearField(index);
-        }
+        //private void btnClear_Click(object sender, RoutedEventArgs e)
+        //{
+        //    int index = cbSelectContent.SelectedIndex;
+        //    ClearField(index);
+        //}
 
-        private void ClearField(int selectedIndex)
-        {
-            switch (selectedIndex)
-            {
-                case 0:
-                    wtbURLUri.Text = string.Empty;
-                    UIValidation.SetUpValidControl(wtbURLUri);
-                    break;
-                case 1:
-                    pageMeCard.Clear();
-                    break;
-                case 2:
-                    pageVCard.Clear();
-                    break;
-                case 3:
-                    pagePhone.Clear();
-                    break;
-                case 4:
-                    pageSMS.Clear();
-                    break;
-                case 5:
-                    pageEmail.Clear();
-                    break;
-                case 6:
-                    pageiCal.Clear();
-                    break;
-                case 7:
-                    tbText.Text = string.Empty;
-                    UIValidation.SetUpValidControl(tbText);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("selectedIndex",
-                        string.Format("SelectedIndex {0} not support", selectedIndex.ToString()));
-            }
-            qrCodeGeoControl.Text = string.Empty;
-        }
+        //private void ClearField(int selectedIndex)
+        //{
+        //    switch (selectedIndex)
+        //    {
+        //        case 0:
+        //            wtbURLUri.Text = string.Empty;
+        //            UIValidation.SetUpValidControl(wtbURLUri);
+        //            break;
+        //        case 1:
+        //            pageMeCard.Clear();
+        //            break;
+        //        case 2:
+        //            pageVCard.Clear();
+        //            break;
+        //        case 3:
+        //            pagePhone.Clear();
+        //            break;
+        //        case 4:
+        //            pageSMS.Clear();
+        //            break;
+        //        case 5:
+        //            pageEmail.Clear();
+        //            break;
+        //        case 6:
+        //            pageiCal.Clear();
+        //            break;
+        //        case 7:
+        //            tbText.Text = string.Empty;
+        //            UIValidation.SetUpValidControl(tbText);
+        //            break;
+        //        default:
+        //            throw new ArgumentOutOfRangeException("selectedIndex",
+        //                string.Format("SelectedIndex {0} not support", selectedIndex.ToString()));
+        //    }
+        //    qrCodeGeoControl.Text = string.Empty;
+        //}
 
         #endregion
 
